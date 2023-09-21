@@ -1,0 +1,6 @@
+/* Register.css */
+.form-container {
+    width: 500px; /* You can adjust this width according to your design */
+    max-width: 100%;
+    box-sizing: border-box;
+}
