@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users list</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>User List</h1>
+  <ul>
+    <li th:each="user : ${listOfUsers}">
+      User name: <span th:text="${user.username}"></span> - User id: <span th:text="${user.id}"></span> - Age:  <span th:text="${user.age}"></span>
+    </li>
+  </ul>
+  <form action="/adduser">
+    <button type="submit">Add another User</button>
+  </form>
+  <form action="/deleteuser">
+
+    <button type="submit">Delete User</button>
+  </form>
+
+  <form action="/updateuser">
+
+    <button type="submit">Update User</button>
+  </form>
+  <form action="/userbyage">
+
+    <button type="submit">Custom query by age</button>
+  </form>
+
+  <form action="/userbyname">
+
+    <button type="submit">Custom query by name</button>
+  </form>
+  <form action="/ops">
+
+    <button type="submit">Back to Operations</button>
+  </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Operations</title>
+  <style>
+  body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f0f0f0;
+  }
+
+  h1 {
+  color: #333;
+  margin-top: 30px;
+  }
+
+  form {
+  display: inline-block;
+  margin: 20px;
+  }
+
+  button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  }
+
+  button:hover {
+  background-color: #0056b3;
+  }
+  </style>
+</head>
+<body>
+<form action="/adduser">
+  <button type="submit">Add User</button>
+</form>
+<form action="/deleteuser">
+
+  <button type="submit">Delete User</button>
+</form>
+
+<form action="/updateuser">
+
+  <button type="submit">Update User</button>
+</form>
+
+<form action="/usersview">
+
+  <button type="submit">View Users</button>
+</form>
+
+<form action="/userbyage">
+
+    <button type="submit">Custom query by age</button>
+</form>
+
+<form action="/userbyname">
+
+    <button type="submit">Custom query by name</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .header {
+      background-color: #3498db;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 150px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .alert {
+      background-color: #f2dede;
+      color: #a94442;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .login-option {
+      margin-top: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary {
+      background-color: #3498db;
+      color: white;
+    }
+
+    .btn-danger {
+      background-color: #dd4b39;
+      color: white;
+    }
+
+    .btn-dark {
+      background-color: #24292e;
+      color: white;
+    }
+
+    .btn:hover {
+      background-color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    /* ... Remaining CSS styles ... */
+  </style>
+</head>
+<body>
+
+
+<div class="container">
+  <div th:if="${param.error}" class="alert">
+    Either the email or password entered is incorrect!
+  </div>
+
+
+  <div class="login-option">
+    <a th:href="@{/oauth2/authorization/google}" class="btn btn-danger">Login with Google</a>
+    <a th:href="@{/oauth2/authorization/github}" class="btn btn-dark">Login with GitHub</a>
+  </div>
+
+  <form th:action="@{/login}" method="post" th:object="${user}">
+    <label for="email">Email</label>
+    <input id="email" type="text" th:field="*{username}" required autofocus>
+
+    <label for="password">Password</label>
+    <input id="password" type="password" th:field="*{password}" required>
+
+    <button type="submit" class="btn btn-primary">Log In</button>
+    <span class="register-link">New User? <a href="/" th:href="@{/registration}" class="btn btn-dark">Register here</a></span>
+  </form>
+</div>
+
+</body>
+</html>

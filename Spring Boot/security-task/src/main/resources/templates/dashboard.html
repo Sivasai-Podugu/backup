@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>V1 JWT List</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f0f0f0;
+    }
+    .navbar {
+      background-color: #343a40;
+      color: #ffffff;
+    }
+    .container {
+      margin-top: 80px;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    .success-message {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 18px;
+      margin-top: 30px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Oauth2.0</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" th:text="${userDetails}"></a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-primary mr-2" th:href="@{/v1/token/generate}">GET V1 ACCESS</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-primary mr-2" th:href="@{/v1}">Go To V1</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-primary mr-2"th:href="@{/logout}">
+            <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div th:if="${param.success}" class="container success-message">
+  <p>V1 access granted</p>
+</div>
+
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h2 class="mb-3">List of V1 JWTs</h2>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>JwtName</th>
+          <th>JWT</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="jwt : ${listofV1jwt}">
+          <td th:text="${jwt.id}"></td>
+          <td th:text="${jwt.jwtName}"></td>
+          <td th:text="${jwt.jwt}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
